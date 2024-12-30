@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <%- include('partials/header.ejs', { title: title }) %>
+  <div class="container">
+    <% if (users && users.length > 0) { %>
+      <% users.forEach(user => { %>
+        <div class="user" data-id="<%= user.id %>">
+          <h2><%= user.name %></h2>
+          <p><strong>Email:</strong> <%= user.email %></p>
+          <p><strong>Age:</strong> <%= user.age %></p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No users found.</p>
+    <% } %>
+  </div>
+    <a href="/add-user">
+
+      <button class="add-user-button">Add user</button>
+    </a>
+    <button class="add-user-button delete-user-button">Delete user</button>
+    <button class="add-user-button edit-user-button">Edit user</button>
+    <script src="/DOM-MANIPULATION/dom.js" type="module"></script>
+</body>
+</html>
+

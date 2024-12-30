@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> : <%= user.name %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header.ejs', { title: title }) %>
+    <div class="container">
+        <form action="/edit-user/<%= user.id %>" method="post" class="user-form">
+            <input type="text" name="name" placeholder="Name" class="form-input" value="<%= user.name %>">
+            <input type="email" name="email" placeholder="Email" class="form-input" value="<%= user.email %>">
+            <input type="number" name="age" placeholder="Age" class="form-input" value="<%= user.age %>">
+            <button type="submit" class="form-button">Edit user</button>
+        </form>
+    </div>
+</body>
+</html>
